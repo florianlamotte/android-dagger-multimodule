@@ -22,6 +22,9 @@ class MainActivity : ComponentActivity() {
     internal lateinit var getUser: GetUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (applicationContext as DaggerMultiModuleApplication)
+            .applicationDaggerComponent
+            .inject(this)
         super.onCreate(savedInstanceState)
 
         GlobalScope.launch(Dispatchers.IO) {
