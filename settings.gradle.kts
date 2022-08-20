@@ -28,6 +28,11 @@ dependencyResolutionManagement {
             alias("compose.preview").to("androidx.compose.ui", "ui-tooling-preview").versionRef("composeVersion")
             bundle("compose", listOf("compose.ui", "compose.material", "compose.preview"))
 
+            // Compose - debug tools
+            alias("compose.debug.tooling").to("androidx.compose.ui", "ui-tooling").versionRef("composeVersion")
+            alias("compose.debug.manifest").to("androidx.compose.ui", "ui-test-manifest").versionRef("composeVersion")
+            bundle("compose.debug", listOf("compose.debug.tooling", "compose.debug.manifest"))
+
             // Coroutines
             version("coroutineVersion", "1.6.0")
             alias("coroutine.core").to("org.jetbrains.kotlinx","kotlinx-coroutines-core").versionRef("coroutineVersion")

@@ -49,8 +49,7 @@ android {
 dependencies {
     // Compose
     implementation(core.bundles.compose)
-    debugImplementation "androidx.compose.ui:ui-tooling:$composeToolsVersion"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$composeToolsVersion"
+    debugImplementation(core.bundles.compose.debug)
     // Coroutines
     implementation(core.bundles.coroutine)
     // Dagger

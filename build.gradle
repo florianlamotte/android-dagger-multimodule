@@ -1,7 +1,6 @@
 buildscript {
     ext {
         composeVersion = '1.1.0'
-        composeToolsVersion = '1.2.1'
     }
 }
 
