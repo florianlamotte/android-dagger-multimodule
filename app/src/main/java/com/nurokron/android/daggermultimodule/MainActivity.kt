@@ -16,13 +16,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
+    @Inject
+    private lateinit var getUser: GetUser
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         GlobalScope.launch(Dispatchers.IO) {
-            val userName = GetUser().getUser().name
+            val userName = getUser().name
             initialize(
                 userName
             )
