@@ -20,7 +20,14 @@ dependencyResolutionManagement {
     // dependency catalog
     versionCatalogs {
         create("core") {
-            // DEPEDENCIES
+            // DEPENDENCIES
+            // Compose
+            version("composeVersion", "1.2.1")
+            alias("compose.ui").to("androidx.compose.ui", "ui").versionRef("composeVersion")
+            alias("compose.material").to("androidx.compose.material", "material").versionRef("composeVersion")
+            alias("compose.preview").to("androidx.compose.ui", "ui-tooling-preview").versionRef("composeVersion")
+            bundle("compose", listOf("compose.ui", "compose.material", "compose.preview"))
+
             // Coroutines
             version("coroutineVersion", "1.6.0")
             alias("coroutine.core").to("org.jetbrains.kotlinx","kotlinx-coroutines-core").versionRef("coroutineVersion")

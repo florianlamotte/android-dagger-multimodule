@@ -29,9 +29,11 @@ class MainActivity : ComponentActivity() {
 
         GlobalScope.launch(Dispatchers.IO) {
             val userName = getUser().name
-            initialize(
-                userName
-            )
+            launch(Dispatchers.Main) {
+                initialize(
+                    userName
+                )
+            }
         }
     }
 
