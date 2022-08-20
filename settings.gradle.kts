@@ -20,6 +20,7 @@ dependencyResolutionManagement {
     // dependency catalog
     versionCatalogs {
         create("core") {
+            // DEPEDENCIES
             // Coroutines
             version("coroutineVersion", "1.6.0")
             alias("coroutine.core").to("org.jetbrains.kotlinx","kotlinx-coroutines-core").versionRef("coroutineVersion")
@@ -32,6 +33,9 @@ dependencyResolutionManagement {
             alias("dagger.android").to("com.google.dagger", "dagger-android").versionRef("daggerVersion")
             alias("dagger.android.support").to("com.google.dagger", "dagger-android-support").versionRef("daggerVersion")
             bundle("dagger", listOf("dagger.core", "dagger.android", "dagger.android.support"))
+
+            alias("daggerannotations.compiler").to("com.google.dagger", "dagger-compiler").versionRef("daggerVersion")
+            bundle("daggerannotations", listOf("daggerannotations.compiler"))
         }
     }
 }

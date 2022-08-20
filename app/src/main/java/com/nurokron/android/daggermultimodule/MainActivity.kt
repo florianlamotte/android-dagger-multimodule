@@ -15,12 +15,11 @@ import com.nurokron.android.domain.user.usecase.GetUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
     @Inject
-    private lateinit var getUser: GetUser
+    internal lateinit var getUser: GetUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
