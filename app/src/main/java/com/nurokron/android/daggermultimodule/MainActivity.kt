@@ -7,14 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.nurokron.android.daggermultimodule.di.DaggerApplicationComponent
+import com.nurokron.android.daggermultimodule.di.daggerViewModel
 import com.nurokron.android.daggermultimodule.startup.UserProfile
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as DaggerMultiModuleApplication)
-            .applicationDaggerComponent
-            .inject(this)
+//        (applicationContext as DaggerMultiModuleApplication)
+//            .applicationDaggerComponent
+//            .inject(this)
         super.onCreate(savedInstanceState)
         setContent {
             Navigator()
@@ -28,7 +30,15 @@ class MainActivity : ComponentActivity() {
             navController,
             startDestination = "userProfile"
         ) {
-            composable("userProfile") { UserProfile() }
+            composable("userProfile") {
+                val applicationComponent = DaggerApplicationComponent.builder().build()
+                val userViewModel = daggerViewModel {
+                    applicationComponent.getUserViewModel()
+                }
+                UserProfile(
+                    userViewModel
+                )
+            }
         }
     }
 }

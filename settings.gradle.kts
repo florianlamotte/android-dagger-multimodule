@@ -40,7 +40,7 @@ dependencyResolutionManagement {
             bundle("coroutine", listOf("coroutine.core", "coroutine.android"))
 
             // Dagger
-            version("daggerVersion", "2.40")
+            version("daggerVersion", "2.42")
             alias("dagger.core").to("com.google.dagger", "dagger").versionRef("daggerVersion")
             alias("dagger.android").to("com.google.dagger", "dagger-android").versionRef("daggerVersion")
             alias("dagger.android.support").to("com.google.dagger", "dagger-android-support").versionRef("daggerVersion")

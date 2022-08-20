@@ -11,13 +11,13 @@ import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
 
 @Composable
 fun UserProfile(
-    viewModel: UserViewModel = UserViewModel()
+    viewModel: UserViewModel,
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        Greeting(viewModel.getUserData())
+        Greeting("some name")
     }
 }
 
