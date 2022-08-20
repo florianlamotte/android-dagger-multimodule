@@ -1,5 +1,6 @@
 package com.nurokron.android.data.userrepository
 
+import android.util.Log
 import com.nurokron.android.domain.user.User
 import com.nurokron.android.domain.user.UserRepository
 import kotlinx.coroutines.delay
@@ -20,7 +21,8 @@ class UserRepositoryLocal @Inject constructor(
                 emit(
                     User(it, 24)
                 )
-                delay(1000)
+                Log.v("USER_REPOSITORY", "Emitted $it")
+                delay(3000)
             }
         }
     }
