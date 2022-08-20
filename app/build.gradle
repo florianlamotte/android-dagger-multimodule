@@ -51,7 +51,7 @@ dependencies {
     implementation(core.bundles.coroutine)
     // Dagger
     implementation(core.bundles.dagger)
-    kapt 'com.google.dagger:dagger-compiler:2.40'
+    kapt(core.bundles.dagger.annotations)
     // DI
     implementation project(":domain:user")
 

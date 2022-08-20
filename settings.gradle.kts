@@ -34,8 +34,8 @@ dependencyResolutionManagement {
             alias("dagger.android.support").to("com.google.dagger", "dagger-android-support").versionRef("daggerVersion")
             bundle("dagger", listOf("dagger.core", "dagger.android", "dagger.android.support"))
 
-            alias("daggerannotations.compiler").to("com.google.dagger", "dagger-compiler").versionRef("daggerVersion")
-            bundle("daggerannotations", listOf("daggerannotations.compiler"))
+            alias("dagger.annotations.compiler").to("com.google.dagger", "dagger-compiler").versionRef("daggerVersion")
+            bundle("dagger.annotations", listOf("dagger.annotations.compiler"))
         }
     }
 }
