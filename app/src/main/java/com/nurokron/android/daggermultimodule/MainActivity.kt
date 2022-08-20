@@ -11,10 +11,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
+import com.nurokron.android.domain.user.usecase.GetUser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val userName = GetUser().getUser().name
+            initialize(
+                userName
+            )
+        }
+    }
+
+    private fun initialize(
+       userName: String
+    ) {
         setContent {
             DaggerMultimoduleTheme {
                 // A surface container using the 'background' color from the theme
@@ -22,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting("Hello $userName")
                 }
             }
         }
