@@ -56,7 +56,8 @@ dependencies {
     implementation(core.bundles.dagger)
     kapt(core.bundles.dagger.annotations)
 
-    // DI
+    // User
+    implementation project(":data:userrepository")
     implementation project(":domain:user")
 
 

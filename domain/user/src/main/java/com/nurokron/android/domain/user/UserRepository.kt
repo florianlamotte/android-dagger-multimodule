@@ -1,7 +1,7 @@
 package com.nurokron.android.domain.user
 
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
-    fun getUser(): StateFlow<User>
+    fun getUser(): Flow<User>
 }

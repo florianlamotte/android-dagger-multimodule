@@ -1,0 +1,28 @@
+package com.nurokron.android.data.userrepository
+
+import com.nurokron.android.domain.user.User
+import com.nurokron.android.domain.user.UserRepository
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+
+class UserRepositoryLocal @Inject constructor(
+): UserRepository {
+    override fun getUser(): Flow<User> {
+        return flow {
+            listOf(
+                "Pam",
+                "Clarence",
+                "Senechal",
+                "Pompadour"
+            ).forEach {
+                emit(
+                    User(it, 24)
+                )
+                delay(1000)
+            }
+        }
+    }
+
+}
