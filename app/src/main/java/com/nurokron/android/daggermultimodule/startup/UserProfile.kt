@@ -5,6 +5,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
@@ -13,11 +15,13 @@ import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
 fun UserProfile(
     viewModel: UserViewModel,
 ) {
+    val name by viewModel.userName.collectAsState()
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        Greeting("some name")
+        Greeting(name)
     }
 }
 

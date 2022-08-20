@@ -16,8 +16,13 @@ class UserViewModel @Inject constructor(
     private val _userName = MutableStateFlow("No user")
     val userName: StateFlow<String> = _userName
 
-    fun getUserData() {
+    init {
+        getUserData()
+    }
+
+    private fun getUserData() {
         viewModelScope.launch(Dispatchers.IO) {
+            Thread.sleep(5000)
             _userName.value = getUser().name
         }
     }
