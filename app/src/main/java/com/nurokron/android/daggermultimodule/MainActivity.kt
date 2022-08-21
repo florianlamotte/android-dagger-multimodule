@@ -30,14 +30,22 @@ class MainActivity : ComponentActivity() {
             navController,
             startDestination = "userProfile"
         ) {
-            composable("userProfile") {
-                val applicationComponent = DaggerApplicationComponent.builder().build()
+            val applicationComponent = DaggerApplicationComponent.builder().build()
+
+            composable(
+                "userProfile"
+            ) {
                 val userViewModel = daggerViewModel {
                     applicationComponent.getUserViewModel()
                 }
                 UserProfile(
                     userViewModel
                 )
+            }
+
+            composable(
+                "userAgeScreen"
+            ) {
             }
         }
     }
