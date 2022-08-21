@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -14,33 +15,44 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.nurokron.android.feature.standard.theme.DaggerMultimoduleTheme
 
 @Composable
 fun UserNameView(
     viewModel: UserNameViewModel,
+    buttonClickUserSex: () -> Unit,
 ) {
     val name by viewModel.userName.collectAsState()
     UserNameScreen(
-        name
+        name,
+        buttonClickUserSex,
     )
 }
 
 @Composable
 private fun UserNameScreen(
     name: String,
+    buttonClickUserSex: () -> Unit,
 ) {
     Scaffold(
-        content = { Content(name) }
+        content = {
+            Content(
+                Modifier.padding(it),
+                name,
+                buttonClickUserSex,
+            )
+        }
     )
 }
 
 @Composable
 private fun Content(
+    modifier: Modifier,
     name: String,
+    buttonClickUserSex: () -> Unit,
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize(),
     ) {
         Column(
             Modifier
@@ -59,9 +71,9 @@ private fun Content(
             horizontalArrangement = Arrangement.Center,
         ) {
             Button(
-                onClick = { /*TODO*/ }
+                onClick = { buttonClickUserSex }
             ) {
-                Text("View age")
+                Text("View user sex")
             }
         }
     }
@@ -75,7 +87,7 @@ private fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    DaggerMultimoduleTheme {
-        UserNameScreen("Android")
-    }
+    UserNameScreen(
+        "Android"
+    ) {}
 }
