@@ -17,13 +17,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion composeVersion
+    }
 }
 
 dependencies {
     // PROJECT DEPENDENCIES
     implementation project(":app")
     // User
-    implementation project(":data:userrepository")
     implementation project(":domain:user")
     // Theme
     implementation project(":feature:standard:theme")

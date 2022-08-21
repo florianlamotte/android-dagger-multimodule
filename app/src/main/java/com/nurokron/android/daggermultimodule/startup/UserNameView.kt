@@ -20,11 +20,13 @@ import androidx.compose.ui.tooling.preview.Preview
 fun UserNameView(
     viewModel: UserNameViewModel,
     buttonClickUserSex: () -> Unit,
+    buttonClickUserAgeDyna: () -> Unit,
 ) {
     val name by viewModel.userName.collectAsState()
     UserNameScreen(
         name,
         buttonClickUserSex,
+        buttonClickUserAgeDyna
     )
 }
 
@@ -32,6 +34,7 @@ fun UserNameView(
 private fun UserNameScreen(
     name: String,
     buttonClickUserSex: () -> Unit,
+    buttonClickUserAgeDyna: () -> Unit,
 ) {
     Scaffold(
         content = {
@@ -39,6 +42,7 @@ private fun UserNameScreen(
                 Modifier.padding(it),
                 name,
                 buttonClickUserSex,
+                buttonClickUserAgeDyna
             )
         }
     )
@@ -49,6 +53,7 @@ private fun Content(
     modifier: Modifier,
     name: String,
     buttonClickUserSex: () -> Unit,
+    buttonClickUserAgeDyna: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -75,6 +80,11 @@ private fun Content(
             ) {
                 Text("View user sex")
             }
+            Button(
+                onClick = { buttonClickUserAgeDyna() }
+            ) {
+                Text("View user age (secret!)")
+            }
         }
     }
 }
@@ -88,6 +98,8 @@ private fun Greeting(name: String) {
 @Composable
 private fun DefaultPreview() {
     UserNameScreen(
-        "Android"
-    ) {}
+        "Android",
+        {},
+        {}
+    )
 }

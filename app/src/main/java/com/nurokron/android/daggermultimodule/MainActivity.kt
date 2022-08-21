@@ -24,7 +24,9 @@ class MainActivity : ComponentActivity() {
 //            .inject(this)
         super.onCreate(savedInstanceState)
         setContent {
-            NavigationHost()
+            NavigationHost(
+                lifecycleOwner = this
+            )
         }
     }
 }

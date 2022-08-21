@@ -1,5 +1,6 @@
 package com.nurokron.android.useragedynamicmodule
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -21,10 +22,16 @@ fun UserAgeView(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        UserData(
-            user.name,
-            user.age.toString()
-        )
+        Column {
+            Text(
+                "This screen shows the user age... It's a dynamic module, as not everyone " +
+                        "wants to see their age."
+            )
+            UserData(
+                user.name,
+                user.age.toString()
+            )
+        }
     }
 }
 
