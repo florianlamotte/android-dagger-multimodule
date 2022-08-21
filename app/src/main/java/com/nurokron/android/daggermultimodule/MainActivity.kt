@@ -9,7 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.nurokron.android.daggermultimodule.di.DaggerApplicationComponent
 import com.nurokron.android.daggermultimodule.di.daggerViewModel
-import com.nurokron.android.daggermultimodule.startup.UserProfile
+import com.nurokron.android.daggermultimodule.startup.UserNameView
 
 class MainActivity : ComponentActivity() {
 
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 val userViewModel = daggerViewModel {
                     applicationComponent.getUserViewModel()
                 }
-                UserProfile(
+                UserNameView(
                     userViewModel
                 )
             }
