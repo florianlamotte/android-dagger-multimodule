@@ -23,7 +23,11 @@ class UserAgeNavigationFragment
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return UserAgeNavigationFragmentBinding.inflate(inflater, container, false).root
+        return UserAgeNavigationFragmentBinding.inflate(
+            inflater,
+            container,
+            false
+        ).root
     }
 
 }

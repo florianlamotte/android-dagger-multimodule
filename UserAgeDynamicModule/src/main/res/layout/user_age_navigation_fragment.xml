@@ -6,8 +6,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:text="This is the fragment from dynamodule This is the fragment from dynamodule
         This is the fragment from dynamodule This is the fragment from dynamodule"
-        android:textAlignment="center"
         android:textSize="48sp" />
 </LinearLayout>

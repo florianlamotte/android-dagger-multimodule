@@ -1,13 +1,12 @@
 package com.nurokron.android.daggermultimodule.navigation.dynamicmodule
 
-import android.content.Intent
 import androidx.fragment.app.Fragment
 
 abstract class NavigationDynamicModuleUserAge {
 
     companion object {
         private const val NAVIGATION_MODULE_USER_AGE =
-            "com.nurokron.android.useragedynamicmodule.NavigationModuleUserAge"
+            "com.nurokron.android.useragedynamicmodule.dynamic.NavigationModuleUserAge"
 
         private fun getInstanceOfNavigationModule(): NavigationDynamicModuleUserAge {
             val activityClass: Class<out NavigationDynamicModuleUserAge>
