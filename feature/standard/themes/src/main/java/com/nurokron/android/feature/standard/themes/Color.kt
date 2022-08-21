@@ -1,4 +1,4 @@
-package com.nurokron.android.daggermultimodule.ui.theme
+package com.nurokron.android.feature.standard.themes
 
 import androidx.compose.ui.graphics.Color
 
