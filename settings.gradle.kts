@@ -37,7 +37,13 @@ dependencyResolutionManagement {
             version("coroutineVersion", "1.6.0")
             alias("coroutine.core").to("org.jetbrains.kotlinx","kotlinx-coroutines-core").versionRef("coroutineVersion")
             alias("coroutine.android").to("org.jetbrains.kotlinx","kotlinx-coroutines-android").versionRef("coroutineVersion")
-            bundle("coroutine", listOf("coroutine.core", "coroutine.android"))
+            bundle("coroutine",
+                listOf(
+                    "coroutine.core",
+                    "coroutine.android",
+                    "lifecycle.viewmodel"
+                )
+            )
 
             // Dagger
             version("daggerVersion", "2.42")
@@ -48,6 +54,10 @@ dependencyResolutionManagement {
 
             alias("dagger.annotations.compiler").to("com.google.dagger", "dagger-compiler").versionRef("daggerVersion")
             bundle("dagger.annotations", listOf("dagger.annotations.compiler"))
+
+            // Lifecycle
+            version("androidLifecycleVersion", "2.2.0")
+            alias("lifecycle.viewmodel").to("androidx.lifecycle", "lifecycle-viewmodel-ktx").versionRef("androidLifecycleVersion")
         }
     }
 }
@@ -56,3 +66,4 @@ include(":app")
 include(":domain:user")
 include(":data:userrepository")
 include(":UserAgeDynamicModule")
+include(":feature:usersex")
