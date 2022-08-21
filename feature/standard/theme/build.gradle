@@ -31,6 +31,6 @@ android {
 
 dependencies {
     // Compose
-    implementation(core.bundles.compose)
-    debugImplementation(core.bundles.compose.debug)
+    api(core.bundles.compose)
+    debugApi(core.bundles.compose.debug)
 }

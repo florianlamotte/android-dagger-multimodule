@@ -48,9 +48,6 @@ android {
 }
 
 dependencies {
-    // Compose
-    implementation(core.bundles.compose)
-    debugImplementation(core.bundles.compose.debug)
     // Coroutines
     implementation(core.bundles.coroutine)
     // Dagger
@@ -60,6 +57,9 @@ dependencies {
     // User
     implementation project(":data:userrepository")
     implementation project(":domain:user")
+
+    // Theme
+    implementation project(":feature:standard:theme")
 
 
     implementation 'androidx.core:core-ktx:1.7.0'

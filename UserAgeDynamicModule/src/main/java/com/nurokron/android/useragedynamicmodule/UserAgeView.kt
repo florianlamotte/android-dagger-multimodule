@@ -10,7 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.nurokron.android.daggermultimodule.startup.Greeting
-import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
+import com.nurokron.android.feature.standard.theme.DaggerMultimoduleTheme
 
 @Composable
 fun UserAgeView(
@@ -41,6 +41,9 @@ fun UserData(
 @Composable
 fun DefaultPreview() {
     DaggerMultimoduleTheme {
-        Greeting("Android")
+        UserData(
+            "Android",
+            "10"
+        )
     }
 }

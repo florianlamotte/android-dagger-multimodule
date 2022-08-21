@@ -2,6 +2,7 @@ package com.nurokron.android.useragedynamicmodule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.nurokron.android.domain.user.Sex
 import com.nurokron.android.domain.user.User
 import com.nurokron.android.domain.user.usecase.GetUser
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,8 @@ class UserAgeViewModel @Inject constructor(
     private var _user: MutableStateFlow<User> = MutableStateFlow(
         User(
             "no name",
-            99
+            99,
+            Sex.MALE,
         )
     )
     val user: StateFlow<User> = _user

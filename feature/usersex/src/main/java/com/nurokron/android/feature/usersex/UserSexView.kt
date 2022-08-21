@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.nurokron.android.feature.standard.theme.DaggerMultimoduleTheme
 
 @Composable
 fun UserSexView(
@@ -39,6 +40,9 @@ fun UserData(
 @Composable
 fun DefaultPreview() {
     DaggerMultimoduleTheme {
-        Greeting("Android")
+        UserData(
+            "Android",
+        "Robot"
+        )
     }
 }
