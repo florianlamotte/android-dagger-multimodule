@@ -26,7 +26,16 @@ dependencyResolutionManagement {
             alias("compose.ui").to("androidx.compose.ui", "ui").versionRef("composeVersion")
             alias("compose.material").to("androidx.compose.material", "material").versionRef("composeVersion")
             alias("compose.preview").to("androidx.compose.ui", "ui-tooling-preview").versionRef("composeVersion")
-            bundle("compose", listOf("compose.ui", "compose.material", "compose.preview"))
+            alias("compose.viewbinding").to("androidx.compose.ui", "ui-viewbinding").versionRef("composeVersion")
+            bundle(
+                "compose",
+                listOf(
+                    "compose.ui",
+                    "compose.material",
+                    "compose.preview",
+                    "compose.viewbinding"
+                )
+            )
 
             // Compose - debug tools
             alias("compose.debug.tooling").to("androidx.compose.ui", "ui-tooling").versionRef("composeVersion")

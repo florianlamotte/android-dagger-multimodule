@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -16,10 +17,12 @@ import androidx.navigation.dynamicfeatures.DynamicInstallMonitor
 import com.google.android.play.core.splitinstall.SplitInstallSessionState
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.nurokron.android.daggermultimodule.compose.FragmentContainer
+import com.nurokron.android.daggermultimodule.databinding.UserAgeNavigationFragmentBinding
 import com.nurokron.android.daggermultimodule.di.DaggerApplicationComponent
 import com.nurokron.android.daggermultimodule.di.daggerViewModel
 import com.nurokron.android.daggermultimodule.navigation.dynamicmodule.NavigationDynamicModuleUserAge
 import com.nurokron.android.daggermultimodule.startup.UserNameView
+import com.nurokron.android.daggermultimodule.temp.UserAgeNavigationFragment
 import com.nurokron.android.feature.usersex.UserSexView
 
 @Composable
@@ -71,17 +74,20 @@ fun NavigationHost(
         ) {
             val activity = LocalContext.current as FragmentActivity
             val fm = activity.supportFragmentManager
-            val fragment = NavigationDynamicModuleUserAge.newInstance()
-            FragmentContainer(
-                modifier = Modifier.fillMaxSize(),
-                fragmentManager = fm,
-                commit = {
-                    add(
-                        fragment,
-                        "ageScreenFragmentTag"
-                    )
-                }
-            )
+            val fragment = UserAgeNavigationFragment.newInstance()
+//            FragmentContainer(
+//                modifier = Modifier.fillMaxSize(),
+//                fragmentManager = fm,
+//                commit = {
+//                    add(
+//                        fragment,
+//                        "ageScreenFragmentTag"
+//                    )
+//                }
+//            )
+            AndroidViewBinding(UserAgeNavigationFragmentBinding::inflate) {
+
+            }
         }
     }
 }
