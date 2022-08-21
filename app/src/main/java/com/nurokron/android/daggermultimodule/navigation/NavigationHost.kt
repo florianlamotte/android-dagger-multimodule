@@ -9,10 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.nurokron.android.daggermultimodule.di.DaggerApplicationComponent
 import com.nurokron.android.daggermultimodule.di.daggerViewModel
 import com.nurokron.android.daggermultimodule.startup.UserNameView
-import com.nurokron.android.data.userrepository.UserRepositoryLocal
-import com.nurokron.android.domain.user.usecase.GetUser
 import com.nurokron.android.feature.usersex.UserSexView
-import com.nurokron.android.feature.usersex.UserSexViewModel
 
 @Composable
 fun NavigationHost(
@@ -29,11 +26,11 @@ fun NavigationHost(
         composable(
             "userProfile"
         ) {
-            val userViewModel = daggerViewModel {
-                applicationComponent.getUserViewModel()
+            val userNameViewModel = daggerViewModel {
+                applicationComponent.getUserNameViewModel()
             }
             UserNameView(
-                userViewModel,
+                userNameViewModel,
                 buttonClickUserSex = {
                     navController.navigate("userSexScreen")
                 }
@@ -43,12 +40,11 @@ fun NavigationHost(
         composable(
             "userSexScreen"
         ) {
+            val userSexViewModel = daggerViewModel {
+                applicationComponent.getUserSexViewModel()
+            }
             UserSexView(
-                UserSexViewModel(
-                    GetUser(
-                        UserRepositoryLocal()
-                    )
-                )
+                userSexViewModel
             )
         }
     }

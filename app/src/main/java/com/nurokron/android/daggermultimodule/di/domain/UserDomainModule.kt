@@ -1,4 +1,4 @@
-package com.nurokron.android.daggermultimodule.di
+package com.nurokron.android.daggermultimodule.di.domain
 
 import com.nurokron.android.data.userrepository.UserRepositoryLocal
 import com.nurokron.android.domain.user.UserRepository
