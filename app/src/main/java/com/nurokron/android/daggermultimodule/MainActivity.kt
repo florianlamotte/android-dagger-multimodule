@@ -6,10 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.nurokron.android.daggermultimodule.di.DaggerApplicationComponent
 import com.nurokron.android.daggermultimodule.di.daggerViewModel
+import com.nurokron.android.daggermultimodule.navigation.NavigationHost
 import com.nurokron.android.daggermultimodule.startup.UserNameView
 import com.nurokron.android.data.userrepository.UserRepositoryLocal
 import com.nurokron.android.domain.user.usecase.GetUser
@@ -24,43 +24,7 @@ class MainActivity : ComponentActivity() {
 //            .inject(this)
         super.onCreate(savedInstanceState)
         setContent {
-            Navigator()
-        }
-    }
-
-    @Composable
-    private fun Navigator() {
-        val navController = rememberNavController()
-        NavHost(
-            navController,
-            startDestination = "userProfile"
-        ) {
-            val applicationComponent = DaggerApplicationComponent.builder().build()
-
-            composable(
-                "userProfile"
-            ) {
-                val userViewModel = daggerViewModel {
-                    applicationComponent.getUserViewModel()
-                }
-                UserNameView(
-                    userViewModel
-                ) {
-                    navController.navigate("userSexScreen")
-                }
-            }
-
-            composable(
-                "userSexScreen"
-            ) {
-                UserSexView(
-                    UserSexViewModel(
-                        GetUser(
-                            UserRepositoryLocal()
-                        )
-                    )
-                )
-            }
+            NavigationHost()
         }
     }
 }

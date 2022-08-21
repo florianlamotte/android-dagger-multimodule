@@ -29,7 +29,7 @@ fun UserSexView(
 }
 
 @Composable
-fun UserData(
+private fun UserData(
     name: String,
     sex: String
 ) {
@@ -38,7 +38,7 @@ fun UserData(
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+private fun DefaultPreview() {
     DaggerMultimoduleTheme {
         UserData(
             "Android",

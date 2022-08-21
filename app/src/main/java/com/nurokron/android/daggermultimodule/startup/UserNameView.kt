@@ -71,7 +71,7 @@ private fun Content(
             horizontalArrangement = Arrangement.Center,
         ) {
             Button(
-                onClick = { buttonClickUserSex }
+                onClick = { buttonClickUserSex() }
             ) {
                 Text("View user sex")
             }
