@@ -13,7 +13,7 @@ import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
 
 @Composable
 fun UserProfile(
-    viewModel: UserViewModel,
+    viewModel: UserNameViewModel,
 ) {
     val name by viewModel.userName.collectAsState()
 

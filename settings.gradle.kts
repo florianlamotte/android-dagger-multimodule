@@ -55,3 +55,4 @@ rootProject.name = "DaggerMultimodule"
 include(":app")
 include(":domain:user")
 include(":data:userrepository")
+include(":UserAgeDynamicModule")

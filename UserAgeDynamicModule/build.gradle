@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 23
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":app")
+
+    // Compose
+    implementation(core.bundles.compose)
+    debugImplementation(core.bundles.compose.debug)
+    // Coroutines
+    implementation(core.bundles.coroutine)
+    // Dagger
+    implementation(core.bundles.dagger)
+    kapt(core.bundles.dagger.annotations)
+
+    // User
+    implementation project(":data:userrepository")
+    implementation project(":domain:user")
+}

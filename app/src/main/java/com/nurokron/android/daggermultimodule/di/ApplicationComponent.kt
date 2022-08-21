@@ -1,6 +1,6 @@
 package com.nurokron.android.daggermultimodule.di
 
-import com.nurokron.android.daggermultimodule.startup.UserViewModel
+import com.nurokron.android.daggermultimodule.startup.UserNameViewModel
 import dagger.Component
 
 @Component(
@@ -9,5 +9,5 @@ import dagger.Component
     ]
 )
 interface ApplicationComponent {
-    fun getUserViewModel(): UserViewModel
+    fun getUserViewModel(): UserNameViewModel
 }

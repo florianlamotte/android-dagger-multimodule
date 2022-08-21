@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class UserViewModel @Inject constructor(
+class UserNameViewModel @Inject constructor(
     private val getUser: GetUser
 ) : ViewModel() {
 
