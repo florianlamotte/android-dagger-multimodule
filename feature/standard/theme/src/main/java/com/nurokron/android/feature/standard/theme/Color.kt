@@ -1,4 +1,4 @@
-package com.nurokron.android.feature.standard.themes
+package com.nurokron.android.feature.standard.theme
 
 import androidx.compose.ui.graphics.Color
 

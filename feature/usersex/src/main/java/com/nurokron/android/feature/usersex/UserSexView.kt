@@ -9,7 +9,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.nurokron.android.daggermultimodule.ui.theme.DaggerMultimoduleTheme
 
 @Composable
 fun UserSexView(

@@ -34,11 +34,10 @@ dependencies {
     // PROJECT DEPENDENCIES
     // User
     implementation project(":domain:user")
+    // Theme
+    implementation project(':feature:standard:theme')
 
     // EXTERNAL DEPENDENCIES
-    // Compose
-    implementation(core.bundles.compose)
-    debugImplementation(core.bundles.compose.debug)
     // Coroutines
     implementation(core.bundles.coroutine)
     // Dagger
