@@ -2,9 +2,11 @@ package com.nurokron.android.daggermultimodule.startup
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Button
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -28,11 +30,22 @@ fun UserNameView(
 private fun UserNameScreen(
     name: String,
 ) {
-    Surface(
+    Scaffold(
+        content = { Content(name) }
+    )
+}
+
+@Composable
+private fun Content(
+    name: String,
+) {
+    Column(
         modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colors.background
     ) {
         Column(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -41,17 +54,27 @@ private fun UserNameScreen(
             )
             Greeting(name)
         }
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+        ) {
+            Button(
+                onClick = { /*TODO*/ }
+            ) {
+                Text("View age")
+            }
+        }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
+private fun Greeting(name: String) {
     Text(text = "You are $name!")
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+private fun DefaultPreview() {
     DaggerMultimoduleTheme {
         UserNameScreen("Android")
     }
