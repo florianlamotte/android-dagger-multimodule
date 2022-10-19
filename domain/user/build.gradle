@@ -34,4 +34,8 @@ dependencies {
     implementation(core.bundles.coroutine)
     // Dagger
     implementation(core.bundles.dagger)
+
+    // TESTS
+    testImplementation(core.bundles.junit4)
+    testImplementation(core.bundles.junit5)
 }
