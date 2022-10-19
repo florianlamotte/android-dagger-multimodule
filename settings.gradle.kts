@@ -67,6 +67,15 @@ dependencyResolutionManagement {
             // Lifecycle
             version("androidLifecycleVersion", "2.2.0")
             alias("lifecycle.viewmodel").to("androidx.lifecycle", "lifecycle-viewmodel-ktx").versionRef("androidLifecycleVersion")
+
+            // Tests
+            version("jUnit4Version", "4.13.2")
+            alias("junit4.core").to("junit", "junit").versionRef("jUnit4Version")
+            bundle("junit4", listOf("junit4.core"))
+
+            version("jUnit5Version", "5.9.1")
+            alias("junit5.core").to("org.junit.jupiter", "junit-jupiter-api").versionRef("jUnit5Version")
+            bundle("junit5", listOf("junit5.core"))
         }
     }
 }
