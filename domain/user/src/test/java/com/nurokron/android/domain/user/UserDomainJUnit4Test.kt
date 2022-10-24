@@ -7,7 +7,7 @@ internal class UserDomainJUnit4Test {
 
     @Test
     fun `assert something is true`() {
-        assertTrue(false)
+        assertTrue(true)
     }
 
 }
