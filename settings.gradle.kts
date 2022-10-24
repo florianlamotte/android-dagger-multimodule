@@ -76,6 +76,10 @@ dependencyResolutionManagement {
             version("jUnit5Version", "5.9.1")
             alias("junit5.core").to("org.junit.jupiter", "junit-jupiter-api").versionRef("jUnit5Version")
             bundle("junit5", listOf("junit5.core"))
+
+            alias("junit.engine").to("org.junit.jupiter", "junit-jupiter-engine").versionRef("jUnit5Version")
+            alias("junit.vintage").to("org.junit.vintage", "junit-vintage-engine").versionRef("jUnit5Version")
+            bundle("junitrunner", listOf("junit.engine", "junit.vintage"))
         }
     }
 }
