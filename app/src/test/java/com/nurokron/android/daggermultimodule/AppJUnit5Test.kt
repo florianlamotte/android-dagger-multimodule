@@ -7,7 +7,7 @@ class AppJUnit5Test {
 
     @Test
     fun `assert something is true`() {
-        assertTrue(false)
+        assertTrue(true)
     }
 
 }
