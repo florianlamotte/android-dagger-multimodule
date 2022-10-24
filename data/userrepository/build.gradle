@@ -27,6 +27,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    testOptions {
+        unitTests {
+            all {
+                useJUnitPlatform()
+            }
+        }
+    }
 }
 
 dependencies {
@@ -38,4 +45,5 @@ dependencies {
     // TESTS
     testImplementation(core.bundles.junit4)
     testImplementation(core.bundles.junit5)
+    testRuntimeOnly(core.bundles.junitrunner)
 }
